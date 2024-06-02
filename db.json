@@ -1,36 +1,26 @@
-{
-  "trades": [
-    {
-      "id": 1,
-      "type": "buy",
-      "user_id": 23,
-      "symbol": "ABX",
-      "shares": 30,
-      "price": 134
-    },
-    {
-      "id": 2,
-      "type": "buy",
-      "user_id": 23,
-      "symbol": "ABX",
-      "shares": 30,
-      "price": 134
-    },
-    {
-      "id": 3,
-      "type": "buy",
-      "user_id": 23,
-      "symbol": "ABX",
-      "shares": 30,
-      "price": 134
-    },
-    {
-      "type": "buy",
-      "user_id": 23,
-      "symbol": "ABX",
-      "shares": 30,
-      "price": 134,
-      "id": 4
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "type": "buy",
+    "user_id": 23,
+    "symbol": "ABX",
+    "shares": 30,
+    "price": 134
+  },
+  {
+    "id": 2,
+    "type": "buy",
+    "user_id": 23,
+    "symbol": "ABX",
+    "shares": 30,
+    "price": 134
+  },
+  {
+    "id": 3,
+    "type": "buy",
+    "user_id": 23,
+    "symbol": "ABX",
+    "shares": 30,
+    "price": 134
+  }
+]

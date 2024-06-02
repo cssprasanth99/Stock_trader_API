@@ -42,8 +42,46 @@ server.post("/trades", (req, res) => {
   res.status(201).send("Stocks are received"); // sending success message to client
 });
 
+server.get("/trades/:id", (req, res) => {
+  const stockId = parseInt(req.params.id); // getting id form request from the
 
+  const stocks = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "db.json"), "utf-8") // reading db.json file
+  );
 
+  if (stockId === -1) {
+    return res.status(201).send("ID not found"); // if id not foud in db.json file error message is sent
+  }
+  const reqStock = stocks.trades.filter((task) => task.id === stockId); // filtering the object that is being requested by client
+
+  // console.log(reqStock);
+
+  res.status(201).send(reqStock); // sending reqStock to client on success
+});
+
+server.delete("/trades/:id", (req, res) => {
+  const stockId = parseInt(req.params.id);
+
+  const stocks = JSON.parse(
+    fs.readFileSync(path.join(__dirname, "db.json"), "utf-8") // reading db.json file
+  );
+
+  if (stockId === -1) {
+    return res.status(201).send("ID not found"); // if id not foud in db.json file error message is sent
+  }
+
+  const updatedStocks = stocks.trades.filter((task) => task.id !== stockId); //filtering the arry by removing object requested by client
+
+  fs.writeFileSync(
+    path.join(__dirname, "db.json"),
+    JSON.stringify(updatedStocks, null, 2),
+    "utf-8"
+  ); // again writing whole array to JSON server with updated stock;
+
+  res.status(201).send("Stock is deleted"); // sending success message to client
+});
+
+server.patch("/trades/:id", (req, res) => {});
 
 server.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
